@@ -22,7 +22,7 @@ df[,2] <- activity_labels[match(df[,2],activity_labels[,1]),2]
 
 #Appropriately labels the data set with descriptive variable names.
 temp <- features; temp <- sub("t","time", temp); temp <- gsub("-",".",temp)
-temp <- gsub("mean()","mean",temp); temp <- gsub("std()","std", temp)
+temp <- gsub("mean\\(\\)","mean",temp); temp <- gsub("std\\(\\)","std", temp)
 colnames(df) <- c('SubjectID','Activity',as.character(temp[indfeatures,2]))
 
 #Creates a tidy data set with the average of each variable for each activity
